@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>React</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./styles/index.css">
+  <script src="./index.js"></script>
+</head>
+
+<body>
+  <header>
+
+    <nav id="navbar">
+      <img id="img1" src="https://pbs.twimg.com/profile_images/446356636710363136/OYIaJ1KK_400x400.png">
+      <header id="title"> React Documentation</header>
+      <ul>
+        <li ><a class="nav-link" href="#Introduction">Introduction</a></li>
+        <li ><a class="nav-link" href="#Getting_Started">Getting Started</a></li>
+        <li ><a class="nav-link" href="#Components">Components</a></li>
+        <li ><a class="nav-link" href="#Props">Props</a></li>
+        <li ><a class="nav-link" href="#State">State</a></li>
+        <li ><a class="nav-link" href="#Lifecycle_Methods">Lifecycle Methods</a></li>
+        <li ><a class="nav-link" href="#Events">Events</a></li>
+        <li ><a class="nav-link" href="#Forms">Forms</a></li>
+        <li ><a class="nav-link" href="#Conditional_Rendering">Conditional Rendering</a></li>
+        <li ><a class="nav-link" href="#Lists_and_Keys">Lists and Keys</a></li>
+        <li ><a class="nav-link" href="#Fragments">Fragments</a></li>
+        <li ><a class="nav-link" href="#Context_API">Context API</a></li>
+        <li ><a class="nav-link" href="#Hooks">Hooks</a></li>
+        <li ><a class="nav-link" href="#Reference">Reference</a></li>
+      </ul>
+
+    </nav>
+  </header>
+
+
+
+
+
+  <main id="main-doc">
+
+    <section class="main-section" id="Introduction">
+      <header>Introduction</header>
+      <p>React is a JavaScript library created by Facebook for building user interfaces. It is not a framework but a
+        tool for building UI components. React creates a virtual DOM in memory and updates the actual DOM only when
+        necessary. This makes it fast and efficient.</p>
+
+    </section>
+
+    <section class="main-section" id="Getting_Started">
+      <header>Getting Started</header>
+      <p>You can get started with React by following the instructions on the official React website. You can also use
+        the command-line interface (CLI) tool create-react-app, which expedites the process of developing a React
+        application by installing some packages and creating some files for you. You’ll need to have Node >= 14 on your
+        local development machine (but it’s not required on the server).</p>
+
+    </section>
+
+    <section class="main-section" id="Components">
+      <header>Components</header>
+      <p>React components are independent and reusable bits of code that serve the same purpose as JavaScript functions
+        but work in isolation and return HTML. In React, we mainly have two types of components:</p>
+      <ul>
+        <li>1- Functional Components: Functional components are simply JavaScript functions that return JSX code that
+          tells
+          what should be rendered on the screen.</li>
+        <li>2- Class Components: Class components are more complex than functional components and are used when we need
+          more features like local state or lifecycle methods.</li>
+      </ul>
+    </section>
+
+    <section class="main-section" id="Props">
+      <header>Props</header>
+      <p>React Props are like function arguments in JavaScript and attributes in HTML. They are used to pass data from
+        one component to another. To send props into a component, use the same syntax as HTML attributes. </p>
+      <pre>
+          <code>
+            function Greeting(props) {
+              return &lt;h1&gt;Hello, {props.name}!&lt;/h1&gt;;
+            }
+    
+            function App() {
+              return (
+                &lt;div&gt;
+                  &lt;Greeting name="Alice" /&gt;
+                  &lt;Greeting name="Bob" /&gt;
+                  &lt;Greeting name="Charlie" /&gt;
+                &lt;/div&gt;
+              );
+            }
+          </code>
+        </pre>
+</body>
+
+</section>
+
+<section class="main-section" id="State">
+  <header>State</header>
+  <p>The state is an object that represents the parts of the app that can change. It is used to store property
+    values that belong to the component. When the state object changes, the component re-renders. The state object
+    is initialized in the constructor.</p>
+  <pre>
+          <code>
+            class Counter extends React.Component {
+              constructor(props) {
+                super(props);
+                this.state = {count: 0};
+              }
+    
+              render() {
+                return (
+                  &lt;div&gt;
+                    &lt;p&gt;You clicked {this.state.count} times&lt;/p&gt;
+                    &lt;button onClick={() => this.setState({count: this.state.count + 1})}&gt;
+                      Click me
+                    &lt;/button&gt;
+                  &lt;/div&gt;
+                );
+              }
+            }
+          </code>
+        </pre>
+
+
+</section>
+
+<section class="main-section" id="Lifecycle_Methods">
+  <header>Lifecycle Methods</header>
+  <p>React.js lifecycle methods are used to manage the various stages of a component’s lifecycle, such as mounting,
+    updating, and unmounting. Lifecycle methods can be used to perform actions such as fetching data, setting up
+    subscriptions, or updating the component’s state.</p>
+
+  <p>React has four built-in methods that get called when mounting a component: React has four built-in methods that get
+    called when mounting a component: <kbd>constructor()</kbd>, <kbd>static getDerivedStateFromProps()</kbd>,
+    <kbd>render()</kbd>, and <kbd>componentDidMount()</kbd>. When updating a component, the following methods are called
+    in this order: static <kbd>getDerivedStateFromProps()</kbd>, <kbd>shouldComponentUpdate()</kbd>,
+    <kbd>render()</kbd>, <kbd>getSnapshotBeforeUpdate()</kbd>, <kbd>componentDidUpdate()</kbd>. When unmounting a
+    component, <kbd>componentWillUnmount()</kbd> is called.</p>
+
+  <p>Lifecycle methods can be used to perform actions such as fetching data, setting up subscriptions, or updating
+    the component’s state. They can also be used to clean up resources used by the component when it is removed from
+    the DOM.</p>
+
+</section>
+
+<section class="main-section" id="Events">
+  <header>Events</header>
+  <p>React is a JavaScript library for building user interfaces. It is used for handling the view layer for web and
+    mobile apps. React uses a virtual DOM (a JavaScript representation of the real DOM) to manage the state of the
+    application. React also provides a way to handle events in your application.</p>
+  <p>In React, events are triggered by user interactions such as clicking on a button or hovering over an element.
+    You can use events to update the state of your application and re-render the view.</p>
+  <p>Here are some examples of events in React:</p>
+  <ul>
+    <li>onClick</li>
+    <li>onChange</li>
+    <li>onSubmit</li>
+    <li>onMouseOver</li>
+    <li>onMouseOut</li>
+  </ul>
+</section>
+
+<section class="main-section" id="Forms">
+  <header>Forms</header>
+  <p>To create forms in React, you can use the built-in HTML form elements like input, textarea, select, etc. You
+    can also use third-party libraries like Formik to build forms in React. Formik is a popular open-source form
+    library for React and React Native that takes care of the repetitive and annoying stuff—keeping track of
+    values/errors/visited fields, orchestrating validation, and handling submission—so you don’t have to.</p>
+
+    <pre>
+      <code>
+        &lt;textarea&gt;
+          Hello there, this is some text in a text area
+          &lt;/textarea&gt;
+      </code>
+    </pre>
+
+</section>
+
+<section class="main-section" id="Conditional_Rendering">
+  <header>Conditional Rendering</header>
+  <p>Conditional rendering is a feature in React that allows you to render different components or UI elements based
+    on certain conditions. It is used to change the behavior of an app depending on its state. For instance, you can
+    change the greeting message of your React app to dark during the night. This way you have a different display
+    message depending on the time of day.</p>
+  <p>In ReactJS, conditional rendering is referred to as Conditional Rendering. To do this, generate a number of
+    components and render them in accordance with certain criteria. There are several ways to use conditional rendering in React. You can use if statements, ternary operators,
+    switch statements, and more.</p>
+</section>
+
+<section class="main-section" id="Lists_and_Keys">
+  <header>Lists and Keys</header>
+  <p>In React, lists are used to display a series of similar items. You can create a list in React by using the
+    <kbd>map()</kbd> function to iterate over an array of data and return an array of React elements. Each element in the array
+    should have a unique key prop that helps React identify which items have changed, are added, or are removed.
+    Keys should be given to the elements inside the array to give the elements a stable identity.</p>
+  <p>Keys allow React to keep track of elements. This way, if an item is updated or removed, only that item will be
+    re-rendered instead of the entire list.</p>
+  <p>Here’s an example of how you can create a list in React:</p>
+  <pre>
+        <code>
+        const numbers = [1, 2, 3, 4, 5];
+        const listItems = numbers.map((number) =>
+        &lt;li key={number.toString()}&gt;
+            {number}
+          </li>
+        );
+      </code>
+    </pre>
+</section>
+
+<section class="main-section" id="Fragments">
+  <header>Fragments</header>
+  <p>Fragments are a common pattern in React where a component returns multiple elements. Fragments let you group a
+    list of children without adding extra nodes to the DOM.</p>
+  <p>In React, you can use fragments to return multiple elements from a component. The other alternative is to use
+    an HTML element like div to wrap them. Fragments are syntax that allow us to add multiple elements to a React component without wrapping them in an
+    extra DOM node.</p>
+</section>
+
+<section class="main-section" id="Context_API">
+  <header>Context API</header>
+  <p> React Context API is a feature in React.js that allows us to pass data through our component trees, giving our
+    components the ability to communicate and share data at different levels. It is safe to use in production with
+    the version 16.3 or latest.</p>
+  <p>The reason for adding context API is to avoid the passing of props if there is a chain of children components.
+  </p>
+  <p>Here are the four steps to using React context :</p>
+  <ul>
+    <li>1. Create context using the createContext method.</li>
+    <li>2. Take your created context and wrap the context provider around your component tree.</li>
+    <li>3. Use the useContext hook to consume the context.</li>
+    <li>4. Pass data through the context provider.</li>
+  </ul>
+</section>
+
+
+<section class="main-section" id="Hooks">
+  <header>Hooks</header>
+  <p>React Hooks are a feature in React that allow you use state and other React features without writing classes.
+    Hooks were added to React in version 16.8. Because of this, class components are generally no longer needed.
+    Hooks let you use different React features from your components. You can either use the built-in Hooks or
+    combine them to build your own.</p>
+  <p>There are several built-in hooks in React such as <kbd>useState</kbd>, <kbd>useEffect</kbd>, <kbd>useContext</kbd>, <kbd>useReducer</kbd>, <kbd>useCallback</kbd>,
+  <kbd>useMemo</kbd>, <kbd>useRef</kbd>, and <kbd>useImperativeHandle</kbd>.</p>
+  <p>UseState is a Hook that lets you add state to your functional components. It takes an initial value as an
+    argument and returns an array with two items: the current state value and a function that lets you update it. useEffect is another Hook that lets you perform side effects in your functional components. It takes two
+    arguments: a function that performs the side effect and an array of dependencies that tells React when to re-run
+    the effect.</p>
+
+    <pre>
+      <code>
+        import React, { useState } from 'react';
+
+function Example() {
+  // Declare a new state variable, which we'll call "count"
+  const [count, setCount] = useState(0);
+
+  return (
+    &lt;div&gt;
+    &lt;p&gt;You clicked {count} times&lt;/p&gt;
+    &lt;button onClick={() => setCount(count + 1)}&gt;
+        Click me
+      </button>
+    </div>);}
+      </code>
+    </pre>
+
+</section>
+
+
+<section class="main-section" id="Reference">
+  <header>Reference</header>
+  <ul>
+  <li class="lastp">All the documentation in this page is taken from <a class="React" href="https://react.dev/">React</a></li>
+  </ul>
+</section>
+
+</main>
+</body>
+
+</html>
